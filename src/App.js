@@ -1,38 +1,36 @@
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import './App.css';
-import processMd from './component/process-md';
-import { Link } from "react-router-dom";
 
 
 
-function App() {
-  function loadMd() {
-    fetch('test-data-2.md')
-        .then(response => response.text()) 
-        .then(csvString => {
-            //Split the csv into rows
-            const rows = csvString.split('\n');
-            //console.log(rows);
-            let html = processMd(rows);
-            document.getElementById('content').innerHTML = html;
-        });
-    }
-loadMd();
+const App = () => {
+  const [content, setContent] = useState("");
 
+  useEffect(() => {
+    fetch("test-data-2.md")
+      .then((res) => res.text())
+      .then((text) => setContent(text)); 
+               
+  },   
+  []);
 
-
+   
 
   return (
     <div className="App">
        
-       <section class="section">
-        <div class="container content">
-        
-            <div class="columns">
-            
+       <section className="section">
+        <div className="container content">
+                   
+            <ReactMarkdown children= {content}>  
               
-                <div class="column" id="content"></div>
-                
-            </div>
+
+  
+            </ReactMarkdown>
+                 
+                        
+    
         </div>
     </section>  
 
