@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 import './App.css';
-
+import ProcessMd from './component/processMd'
 
 
 const App = () => {
-  const [content, setContent] = useState("");
+ 
 
-  useEffect(() => {
-    fetch("test-data-2.md")
-      .then((res) => res.text())
-      .then((text) => setContent(text)); 
-               
-  },   
-  []);
+  
 
    
 
@@ -23,11 +15,7 @@ const App = () => {
        <section className="section">
         <div className="container content">
                    
-            <ReactMarkdown children= {content}>  
-              
-
-  
-            </ReactMarkdown>
+             <ProcessMd/>
                  
                         
     
