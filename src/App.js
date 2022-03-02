@@ -1,5 +1,7 @@
 import './App.css';
-import ProcessMd from './component/processMd'
+import Kunskaper from './component/Kunskaper';
+import AboutUs from './component/AboutUs';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
 const App = () => {
@@ -15,7 +17,17 @@ const App = () => {
        <section className="section">
         <div className="container content">
                    
-             <ProcessMd/>
+    <Router>
+           
+              
+     
+     <Routes>
+     <Route   path="/aboutus" element={<AboutUs/>} /> 
+     <Route   path="/" element={<Kunskaper/>} />
+     </Routes>
+     
+     </Router>
+            
                  
                         
     
